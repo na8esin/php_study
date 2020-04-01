@@ -1,0 +1,3 @@
+<?php
+echo 'aaa' ?? 'ぬる';
+echo null ?? 'ぬる';
