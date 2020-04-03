@@ -4,9 +4,10 @@ $options = [
     //PDO::ATTR_TIMEOUT => 2,
     PDO::ATTR_PERSISTENT => false,
     PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+//    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_ERRMODE =>PDO::ERRMODE_SILENT,
 ];
-$host = 'localhost:3306';
+
 $dsn = 'mysql:host=localhost;port=3306;dbname=demo;charset=utf8';
 $user = 'gaina';
 $password = 'Ifc@130122';
@@ -18,10 +19,26 @@ $password = 'Ifc@130122';
 // PDO::ATTR_ERRMODE = 3
 
 try {
-    $dbh = new PDO($dsn, $user, $password, $options);
-} catch (Exception $e) {
+    $dbh = new \PDO($dsn, $user, $password, $options);
+} catch (\PDOException $e) {
+    var_dump($e->errorInfo);
     print_r($e->getMessage());
-    throw $e;
+    print_r($e->getPrevious());
+    print_r($e->getCode());
+    print_r($e->getFile());
+    print_r($e->getLine());
+	echo PHP_EOL;
+    print_r($e->getTrace());
+	echo PHP_EOL;
+	echo PHP_EOL;
+    var_dump($e->getTrace()[0]['type']);
+	echo PHP_EOL;
+    print_r($e->getTraceAsString());
+	print_r($e->__toString());
+	
+    //var_dump(PDO::errorInfo()); //Non-static method 
+//    print_r($e->code);
+    //throw $e;
 }
 
 
