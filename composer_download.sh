@@ -1,0 +1,1 @@
+ curl -o composer.phar https://getcomposer.org/composer-stable.phar
