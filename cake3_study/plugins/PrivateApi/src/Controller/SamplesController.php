@@ -2,6 +2,8 @@
 
 namespace PrivateApi\Controller;
 
+use Cake\ORM\TableRegistry;
+
 use PrivateApi\Controller\AppController;
 
 /**
@@ -22,7 +24,13 @@ class SamplesController extends AppController
         //$samples = $this->paginate($this->Samples);
 
         //$this->set(compact('samples'));
-        return $this->getResponse()->withStringBody('hello');
+
+        $Appoints = TableRegistry::getTableLocator()->get('Appoints');
+        var_dump($Appoints->get(2263));
+        echo '<br /><br />';
+        var_dump($this->Samples->get(2263));
+        exit;
+//        return $this->getResponse()->withStringBody($Appoints->get(2263));
     }
 
     /**
