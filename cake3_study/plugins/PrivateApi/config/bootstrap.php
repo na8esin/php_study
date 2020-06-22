@@ -2,8 +2,9 @@
 
 use PrivateApi\Error\PrivateApiErrorHandler;
 use Cake\Core\Configure;
+use Cake\Log\Log;
 
 (new PrivateApiErrorHandler(Configure::read('Error')))->register();
-//echo ('plugin bootstrap');
 
+Log::info(__FILE__);
 // 両方のブートストラップを通る

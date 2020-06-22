@@ -20,6 +20,7 @@ use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
+use PrivateApi\Plugin as PrivateApiPlugin;
 
 /**
  * Application setup class.
@@ -34,7 +35,7 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
-        $this->addPlugin('PrivateApi');
+        $this->addPlugin(PrivateApiPlugin::class);
 
         // Call parent to load bootstrap from files.
         parent::bootstrap();
@@ -79,7 +80,8 @@ class Application extends BaseApplication
             // using it's second constructor argument:
             // `new RoutingMiddleware($this, '_cake_routes_')`
             ->add(new RoutingMiddleware($this));
-
+            
+            \Cake\Log\Log::info(__FILE__.':'. 'middleware');
         return $middlewareQueue;
     }
 

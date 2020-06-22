@@ -23,6 +23,7 @@ use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
+use Cake\Log\Log;
 
 
 Router::extensions(['json', 'xml']);
@@ -103,7 +104,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $routes->fallbacks(DashedRoute::class);
+    //$routes->fallbacks(DashedRoute::class);
 });
 
 
@@ -118,3 +119,5 @@ Router::scope('/', function (RouteBuilder $routes) {
  * });
  * ```
  */
+
+Log::info(__FILE__);
