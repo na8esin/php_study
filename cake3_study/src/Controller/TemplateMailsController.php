@@ -14,7 +14,6 @@ class TemplateMailsController extends Controller
   }
 
   // 自動で配列のグルーピングはしてくれない
-  // 得意分野でやった時、https://ifcreate.backlog.jp/git/GAINA/Gaina_v2_dev/commit/333fa4cf902ac320e1af116613b22740f8bc27a8
   public function index()
   {
     $table = TableRegistry::getTableLocator()->get('TemplateMails');
